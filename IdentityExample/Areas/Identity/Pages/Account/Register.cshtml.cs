@@ -82,7 +82,7 @@ namespace IdentityExample.Areas.Identity.Pages.Account
 
             public DateTime DateOfBirth { get; set; }
             public string Fullname { get; internal set; }
-            public string Role { get; internal set; }
+           // public string Role { get; internal set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)

@@ -44,6 +44,9 @@ namespace IdentityExample.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
+            public string UserName { get; set; }
+
+            [Required]
             [EmailAddress]
             public string Email { get; set; }
 
