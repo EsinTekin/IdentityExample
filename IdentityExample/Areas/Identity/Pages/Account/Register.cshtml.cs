@@ -82,7 +82,8 @@ namespace IdentityExample.Areas.Identity.Pages.Account
 
             public DateTime DateOfBirth { get; set; }
             public string Fullname { get; internal set; }
-           // public string Role { get; internal set; }
+            //public string Role { get; set; }
+            // public string Role { get; internal set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -99,8 +100,8 @@ namespace IdentityExample.Areas.Identity.Pages.Account
             {
                 var user = new CustomUser { UserName = Input.UserName, Email = Input.Email, Fullname = Input.Fullname, Address = Input.Address, Gender = Input.Gender, DateOfBirth = Input.DateOfBirth};
                 var result = await _userManager.CreateAsync(user, Input.Password);
-                var addRoleToUser = await _userManager.AddToRoleAsync(user, Input.Role);
-                if (result.Succeeded && addRoleToUser.Succeeded )
+               // var addRoleToUser = await _userManager.AddToRoleAsync(user, Input.Role);
+                if (result.Succeeded) //&& addRoleToUser.Succeeded
                 {
                     _logger.LogInformation("User created a new account with password.");
 
