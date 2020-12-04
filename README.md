@@ -37,18 +37,12 @@
             }
 
 > Buradaki AddDefaultIdentity IdentityUser sýnýfý ile identity ayarlarýný servise kaydetmeye yarar.
-
 > Zaten otomatik olarak oluþturulmuþ bu yapýlarýn yanýnda yapýlmasý gereken iþlem migration ve ayarlarý veritabanýna yansýtmak olacaktýr. Bunun için Package Manager Console üzerinde **update-database** iþlemi uygulanýr. Böylece veritabaný ayarlarýyla birlikte oluþturulmuþ olacaktýr.
 > Identity yapýsý içerisindeki bütün tablolar veritabaný içerisine gelmiþ olacaktýr. 
 	- AspNetUsers tablosu kullanýcý bilgilerini tutar.
 	- AspNetRoles tablosu sistemdeki rolleri tutar.
 	- AspNetUserRoles tablosu kullanýcalara özelleþtirilmiþ þekilde atanan rolleri tutar.
- 
-> Not: SQL Server 'ý göster
-
 > Programý bu aþamada çalýþtýrýrsak kullanýcýnýn mail adresi ve þifresi ile kayýt olup giriþ yapmasýný saðlayan **Register** ve **Login** ekranlarýna ulaþabilir ve çalýþtýrabiliriz. 
-
->Note : “**IdentityUser**” sýnýfýnda bulunan özellikler bunlar, rollendirme için ise “**IdentityRole**” sýnýfý kullanýlýyor fakat Startup.cs içerisinde bu sýnýf default olarak çaðýrýlmamýþ olarak geliyor yani rol-bazlý bir yapý bulunmamakta.
 
 Bu adýmdan sonra projemizin identity özelliklerini geliþtirmek ve özelleþtirmek istersek kullanýcýnýn adresini, telefon numarasýný, cinsiyetini, doðum tarihini, rolünü eklemek üzere adýmlarý takip edebiliriz.
 > IdentityUser sýnýfý içerisinde özellikleri tutuyor. IdentityRole sýnýfýnda ise rollendirme iþlemleri mevcut. Biz özelliklerine eklemeler yapmak istiyoruz. Bu nedenle yeni kullanýcý özelliklerini adýný CustomUser verdiðimiz yeni bir sýnýf içerisine tanýmlýyoruz.
@@ -91,8 +85,6 @@ Bu adýmdan sonra projemizin identity özelliklerini geliþtirmek ve özelleþtirmek 
 
 
 Deðiþiklilerin veritabanýna yansýmasý için Package Manager Console üzerinde **add-migration MigrationName** ve  **update-database** iþlemleri uygulanýr.
-
-- Note : AspNetUser(design) yeni db e bak.
 
 > Identity içerisine bütün sayfalar API üzerinden gelir. Bu nedenle default bir sayfayý Pages içerisinde göremezsiniz. Bu nedenle yeni bir sayfa eklemek için herhangi bir klasörden sað týklayarak **Add -> New Scaffolded Item** diyoruz. Sol taraftan identity seçeneði ile istediðimiz, bizim için "_Account/Login”, “Account/Register” ve “Account/Manage/Index_", seçenekleri ekliyoruz.
 > Default register ekranýnda yalnýzca email ve þifre ile kayýt olurken biz InputModel içerisine, kullanýcý sýnýfýna eklediðimiz adý & soyadý, adres, cinsiyet ve doðum tarihi özelliklerini Register.cshtml.cs içerisine ekliyoruz.
