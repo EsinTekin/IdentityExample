@@ -6,7 +6,7 @@
 @if (SignInManager.IsSignedIn(User))
 {
     var girisYapanKullanici = await UserManager.GetUserAsync(User);
-    var kullanicininTanimlandigiRoller = await UserManager.GetRolesAsync(girisYapanKullanici);
+  //  var kullanicininTanimlandigiRoller = await UserManager.GetRolesAsync(girisYapanKullanici);
 
     <li class="nav-item">
         <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" >Merhaba<b> @girisYapanKullanici.UserName!</b></a>
